@@ -242,19 +242,19 @@
                                         [(ngModel)]="tempAlmacen.meauni"
                                         [disabled]="!isUpdate"
                                         (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea" 
+                                        class="textArea-style smallTextArea fix" 
                                     ></textarea>
                                     <textarea
                                         [(ngModel)]="tempAlmacen.measol"
                                         [disabled]="!isUpdate"
                                         (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea" 
+                                        class="textArea-style smallTextArea fix" 
                                     ></textarea>
                                     <textarea
                                         [(ngModel)]="tempAlmacen.mearec"
                                         [disabled]="!isUpdate"
                                         (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea" 
+                                        class="textArea-style smallTextArea fix" 
                                     ></textarea>
                                 </div>
                             </div>
@@ -286,18 +286,57 @@
                                 </div>
                             </div>
                             <div class="chunk-three">
-                                <input 
-                                    class="checkbox" 
-                                    type="checkbox" 
-                                    [disabled]="!isUpdate"
-                                    (input)="allowToUpdate = true"
-                                    [checked]="tempAlmacen.art_ARTBLO === 1"
-                                /> <span class="p-style">Bloqueado</span>
+                                <div class="first-check">
+                                    <input 
+                                        class="checkbox" 
+                                        type="checkbox" 
+                                        [disabled]="!isUpdate"
+                                        (input)="allowToUpdate = true"
+                                        [checked]="tempAlmacen.art_ARTBLO === 1"
+                                    /> <span class="p-style">Bloqueado</span>
+                                </div>
+                                <div class="second-check">
+                                    <input 
+                                        class="checkbox" 
+                                        type="checkbox" 
+                                        [disabled]="!isUpdate"
+                                        (input)="allowToUpdate = true"
+                                        [checked]="tempAlmacen.meaind === 1"
+                                    /> <span class="p-style">Solicitud individual</span>
+                                </div>
                             </div>
                             <div class="chunk-four adjustedWidthFour">
                                 <div class="left">
+                                    <p class="p-style">Informacíon del almacén</p>
+                                    <p class="p-style">Ubicacíon</p>
+                                    <p class="p-style">Mensaje al solicitante</p>
+                                </div>
+                                <div class="right">
+                                    <textarea 
+                                        class="textArea-style tallTextFour"
+                                        [(ngModel)]="selectedAlmacenNombreSearch"
+                                        [disabled]="!isUpdate"
+                                        (input)="allowToUpdate = true"
+                                    ></textarea>
+                                    <textarea 
+                                        class="textArea-style tallTextFour"
+                                        [(ngModel)]="tempAlmacen.mealoc"
+                                        [disabled]="!isUpdate"
+                                        (input)="allowToUpdate = true"
+                                    ></textarea>
+                                    <textarea 
+                                        class="textArea-style tallTextFour"
+                                        [(ngModel)]="tempAlmacen.meamen"
+                                        [disabled]="!isUpdate"
+                                        (input)="allowToUpdate = true"
+                                    ></textarea>
+                                </div>
+                            </div>
+                            <div class="chunk-five">
+                                <div class="left">
                                     <p class="p-style">Pedido mínimo</p>
                                     <p class="p-style">Valor existencia</p>
+                                    <p class="p-style">Estocaje mínimo</p>
                                 </div>
                                 <div class="right">
                                     <div class="on-two">
@@ -312,10 +351,10 @@
                                             [(ngModel)]="tempAlmacen.art_ARTUEM"
                                             [disabled]="!isUpdate"
                                             (input)="allowToUpdate = true"
-                                            class="textArea-style smallTextArea" 
+                                            class="textArea-style smallTextArea fix2" 
                                         ></textarea>
                                     </div>
-                                    <Div class="on-two">
+                                    <div class="on-two">
                                         <textarea
                                             [ngModel]="calculateKvalExi(tempAlmacen.meauni, tempAlmacen.meapmp)"
                                             [disabled]="!isUpdate"
@@ -327,17 +366,9 @@
                                             [(ngModel)]="tempAlmacen.meapmp"
                                             [disabled]="!isUpdate"
                                             (input)="allowToUpdate = true"
-                                            class="textArea-style smallTextArea" 
+                                            class="textArea-style smallTextArea fix2" 
                                         ></textarea>
-                                    </Div>
-                                </div>                                
-                            </div>
-                            <div class="chunk-five adjustedWidthFive">
-                                <div class="left">
-                                    <p class="p-style">Estocaje mínimo</p>
-                                    <p class="p-style">Estocaje óptimo</p>
-                                </div>
-                                <div class="right">
+                                    </div>
                                     <div class="on-two">
                                         <textarea
                                             [(ngModel)]="tempAlmacen.meamin"
@@ -345,30 +376,31 @@
                                             (input)="allowToUpdate = true"
                                             class="textArea-style smallTextArea" 
                                         ></textarea>
-                                        <p class="p-style">Referencia virtual</p>
-                                        <textarea
-                                            [(ngModel)]="tempAlmacen.art_ARTREF"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
-                                            class="textArea-style tallSecond" 
-                                        ></textarea>
-                                    </div>
-                                    <div class="on-two">
+                                        <p class="p-style slightSecond">Estocaje óptimo</p>
                                         <textarea
                                             [(ngModel)]="tempAlmacen.meaopt"
                                             [disabled]="!isUpdate"
                                             (input)="allowToUpdate = true"
-                                            class="textArea-style smallTextArea" 
-                                        ></textarea>
-                                        <p class="p-style slightSecond">Solicitar</p>
-                                        <textarea
-                                            [ngModel]="calculateKUniSol(tempAlmacen.meauni, tempAlmacen.measol, tempAlmacen.mearec, tempAlmacen.meamin, tempAlmacen.meaopt)"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
-                                            class="textArea-style smallTextArea" 
+                                            class="textArea-style smallTextArea fix2" 
                                         ></textarea>
                                     </div>
-                                </div>
+                                </div>                                
+                            </div>
+                            <div class="chunk-six">
+                                <p class="p-style">Referencia virtual</p>
+                                <textarea
+                                    [(ngModel)]="tempAlmacen.art_ARTREF"
+                                    [disabled]="!isUpdate"
+                                    (input)="allowToUpdate = true"
+                                    class="textArea-style tallSecond" 
+                                ></textarea>
+                                <p class="p-style">Solicitar</p>
+                                <textarea
+                                    [ngModel]="calculateKUniSol(tempAlmacen.meauni, tempAlmacen.measol, tempAlmacen.mearec, tempAlmacen.meamin, tempAlmacen.meaopt)"
+                                    [disabled]="!isUpdate"
+                                    (input)="allowToUpdate = true"
+                                    class="textArea-style smallTextArea" 
+                                ></textarea>
                             </div>
                         </div>
                         <div class="more-detail-container">

@@ -286,6 +286,7 @@ export class MantinimientoArticulosAlmacenComponent {
       next: (res) => {
         this.almacenesSearch = res;
         this.selectedAlmacenNombre = this.almacenesSearch[0]?.depcod;
+        this.selectedAlmacenNombreSearch = this.almacenesSearch[0]?.depdes;
       },
       error: (err) => {
         console.error(err.error.error || err.error);
@@ -294,6 +295,7 @@ export class MantinimientoArticulosAlmacenComponent {
   }
 
   selectedAlmacenNombre: string = '';
+  selectedAlmacenNombreSearch: string = '';
   mainSearch: string = '';
   familia: string = '';
   subfamilia: string = '';
