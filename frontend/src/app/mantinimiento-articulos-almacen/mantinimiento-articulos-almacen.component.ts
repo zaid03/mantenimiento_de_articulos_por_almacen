@@ -395,6 +395,33 @@ export class MantinimientoArticulosAlmacenComponent {
   tempAlmacen: any = {};
   isUpdate: boolean = false;
   allowToUpdate: boolean = false;
+  backupData: any = [];
+  modificar() {
+    this.isUpdate = true;
+    this.backupData = this.selectedAlmacen ? { ...this.selectedAlmacen } : {};
+  }
+
+  cancelar() {
+    this.isUpdate = false;
+    this.tempAlmacen = { ...this.backupData };
+  }
+
+  updateSuccess() {
+    this.isUpdate = false;
+    this.allowToUpdate = false;
+  }
+
+  isUpdateAllowed() {
+    if (this.allowToUpdate) {
+      this.updateArticulo();
+    } else {
+      return;
+    }
+  }
+
+  updateArticulo () {
+    
+  }
 
   // sub details functions
   activeDetailTab: 'proveedores' | null = null;

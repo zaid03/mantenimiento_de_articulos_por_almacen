@@ -190,43 +190,37 @@
                                     <div class="on-two">
                                         <textarea
                                             [(ngModel)]="tempAlmacen.art_Afa_AFACOD"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
                                             class="textArea-style smallTextArea" 
+                                            disabled
                                         ></textarea>
                                         <textarea
                                             [(ngModel)]="tempAlmacen.art_Afa_AFADES"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
                                             class="textArea-style tallText" 
+                                            disabled
                                         ></textarea>
                                     </div>
                                     <div class="on-two">
                                         <textarea
                                             [(ngModel)]="tempAlmacen.art_Asu_ASUCOD"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
                                             class="textArea-style smallTextArea" 
+                                            disabled
                                         ></textarea>
                                         <textarea
                                             [(ngModel)]="tempAlmacen.art_Asu_ASUDES"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
                                             class="textArea-style tallText" 
+                                            disabled
                                         ></textarea>
                                     </div>
                                     <div class="on-two">
                                         <textarea
                                             [(ngModel)]="tempAlmacen.art_ARTCOD"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
-                                            class="textArea-style smallTextArea" 
+                                            class="textArea-style smallTextArea"
+                                            disabled 
                                         ></textarea>
                                         <textarea
                                             [(ngModel)]="tempAlmacen.art_ARTDES"
-                                            [disabled]="!isUpdate"
-                                            (input)="allowToUpdate = true"
                                             class="textArea-style tallText" 
+                                            disabled
                                         ></textarea>
                                     </div>
                                 </div>
@@ -240,21 +234,18 @@
                                 <div class="right">
                                     <textarea
                                         [(ngModel)]="tempAlmacen.meauni"
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea fix" 
+                                        class="textArea-style smallTextArea fix"
+                                        disabled     
                                     ></textarea>
                                     <textarea
                                         [(ngModel)]="tempAlmacen.measol"
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea fix" 
+                                        class="textArea-style smallTextArea fix"
+                                        disabled 
                                     ></textarea>
                                     <textarea
                                         [(ngModel)]="tempAlmacen.mearec"
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea fix" 
+                                        class="textArea-style smallTextArea fix"
+                                        disabled 
                                     ></textarea>
                                 </div>
                             </div>
@@ -267,21 +258,18 @@
                                 <div class="right">
                                     <textarea
                                         [ngModel]="calculateKEstVir(tempAlmacen.meauni, tempAlmacen.measol, tempAlmacen.mearec)"
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea" 
+                                        class="textArea-style smallTextArea"
+                                        disabled 
                                     ></textarea>
                                     <textarea
                                         [(ngModel)]="tempAlmacen.art_Aun_AUNDES"
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
                                         class="textArea-style smallTextArea" 
+                                        disabled
                                     ></textarea>
                                     <textarea
                                         [(ngModel)]="tempAlmacen.art_ARTUCO"
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
-                                        class="textArea-style smallTextArea" 
+                                        class="textArea-style smallTextArea"
+                                        disabled 
                                     ></textarea>
                                 </div>
                             </div>
@@ -290,9 +278,8 @@
                                     <input 
                                         class="checkbox" 
                                         type="checkbox" 
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
                                         [checked]="tempAlmacen.art_ARTBLO === 1"
+                                        disabled
                                     /> <span class="p-style">Bloqueado</span>
                                 </div>
                                 <div class="second-check">
@@ -315,8 +302,7 @@
                                     <textarea 
                                         class="textArea-style tallTextFour"
                                         [(ngModel)]="selectedAlmacenNombreSearch"
-                                        [disabled]="!isUpdate"
-                                        (input)="allowToUpdate = true"
+                                        disabled
                                     ></textarea>
                                     <textarea 
                                         class="textArea-style tallTextFour"
@@ -402,6 +388,30 @@
                                     class="textArea-style smallTextArea" 
                                 ></textarea>
                             </div>
+                        </div>
+                        <div class="btns margin">
+                            <button 
+                                class="purple-btn" 
+                                [disabled]="isUpdate"
+                                [ngClass]="{ 'disabled-btn': isUpdate }" 
+                            >Añadir proveedores</button>
+                            <button 
+                                class="red-btn" 
+                                *ngIf="isUpdate" 
+                                (click)="cancelar()"
+                            >Cancelar</button>
+                            <button 
+                                class="purple-btn"
+                                [disabled]="isUpdate" 
+                                *ngIf="!isUpdate" 
+                                (click)="modificar()"
+                            >Modificar</button>
+                            <button 
+                                class="purple-btn" 
+                                [disabled]="!isUpdate" 
+                                *ngIf="isUpdate" 
+                                (click)="isUpdateAllowed()"
+                            >Guardar</button>
                         </div>
                         <div class="more-detail-container">
                             <div class="tabs" role="tablist" aria-label="Detalle tabs">
